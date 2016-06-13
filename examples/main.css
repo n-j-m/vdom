@@ -1,0 +1,21 @@
+.list {
+  display: flex;
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  height: 100vh;
+  border: 1px solid #555;
+}
+
+.list-controls {
+  float: left;
+  margin-right: 5px;
+}
+
+.list-item {
+  width: 175px;
+  min-width: 175px;
+  margin: 15px;
+  flex-shrink: 0;
+  position: relative;
+}
