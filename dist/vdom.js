@@ -1,3 +1,4 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -67,32 +68,8 @@ function updateElement(parent, newNode, oldNode) {
     }
   }
 }
-"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.isEventProp = isEventProp;
-exports.extractEventName = extractEventName;
-exports.addEventListeners = addEventListeners;
-
-var eventRe = /^on/;
-
-function isEventProp(prop) {
-  return eventRe.test(prop);
-}
-
-function extractEventName(prop) {
-  return prop.slice(2).toLowerCase();
-}
-
-function addEventListeners(target, props) {
-  Object.keys(props).forEach(function (prop) {
-    if (isEventProp(prop)) {
-      target.addEventListener(extractEventName(prop), props[prop]);
-    }
-  });
-}
+},{"./props":3}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -128,6 +105,8 @@ Object.defineProperty(exports, 'render', {
     return _render.render;
   }
 });
+
+},{"./element":1,"./render":4}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -209,6 +188,8 @@ function updateProps(target, newProps) {
     return updateProp(target, prop, newProps[prop], oldProps[prop]);
   });
 }
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -251,6 +232,8 @@ function render(component, reducer, mount, initialData) {
   store.subscribe(renderer);
   renderer();
 }
+
+},{"./element":1,"./store":5}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -282,3 +265,5 @@ function createStore(reducer, initialData) {
 
   return { dispatch: dispatch, getState: getState, subscribe: subscribe };
 }
+
+},{}]},{},[2]);
