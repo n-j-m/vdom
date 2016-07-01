@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --config build/webpack.dev.js",
-    "build": "npm run clean && browserify lib/index.js -o dist/vdom.js -t babelify && npm run min",
+    "build": "npm run clean && browserify lib/index.js -o dist/vdom.js -t babelify --standalone vdom && npm run min",
     "min": "uglifyjs --compress --mangle --screw-ie8 --output dist/vdom.min.js --source-map dist/vdom.js.map -- dist/vdom.js",
     "clean": "rimraf dist/*"
   },
